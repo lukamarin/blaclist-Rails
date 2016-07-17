@@ -1,0 +1,21 @@
+// Place all the styles related to the admin/feedly_sources controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.feedly-source-container {
+  padding: 10px 20px;
+
+  p {
+    padding-bottom: 10px;
+  }
+  
+  form {
+    margin-top: 30px;
+
+    .form-group {
+      select, input {
+        margin-left: 30px;
+      }
+    }
+  }
+}

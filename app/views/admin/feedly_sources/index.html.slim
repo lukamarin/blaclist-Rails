@@ -1,0 +1,35 @@
+= render 'admin/partials/sidebar'
+
+div id="main"
+  .title-panel
+    h3
+      |Feedly sources
+  .data-wrapper         
+    table class="table table-bordered"
+      thead
+        tr
+          th
+            |Icon
+          th
+            |Title
+          th
+            |Group
+          th
+            |Articles amount
+
+      tbody
+        - @feedly_sources.each do |feedly_source|
+          tr
+            td
+              img src="#{feedly_source.icon_url}"
+            td
+              = link_to feedly_source.title, admin_feedly_source_path(feedly_source)
+            td
+              - feedly_source.interests.each do |interest|
+                = interest.name
+                br
+            td
+              = feedly_source.feedly_articles.count
+
+  .pagination-container
+    = paginate @feedly_sources

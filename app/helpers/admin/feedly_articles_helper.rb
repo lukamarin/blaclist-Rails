@@ -1,0 +1,2 @@
+module Admin::FeedlyArticlesHelper
+end

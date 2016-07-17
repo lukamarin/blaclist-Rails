@@ -1,0 +1,29 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 2
+
+development:
+  <<: *default
+  username: postgres
+  password: password123
+  database: blaclist_development
+
+test:
+  <<: *default
+  username: postgres
+  password: password123
+  database: blaclist_test
+
+staging:
+  <<: *default
+  database: blaclist_staging
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+
+production:
+  <<: *default
+  pool: 10
+  database: blaclist_production
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>

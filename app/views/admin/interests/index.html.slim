@@ -1,0 +1,17 @@
+= render 'admin/partials/sidebar'
+
+div id="main"
+  .title-panel
+    h3
+      |Interests
+  .data-wrapper
+    = form_tag admin_update_interests_url, id: "interests", remote: true
+      h4
+        |User keywords
+      = text_area_tag :users_keywords, @interests
+
+      h4
+        |Providers keywords
+      = text_area_tag :providers_keywords, @providers
+      .form-group id="info-container"
+        = submit_tag 'Save', class: 'btn btn-default'

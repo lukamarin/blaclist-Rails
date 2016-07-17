@@ -1,0 +1,24 @@
+= render 'admin/partials/sidebar'
+
+div id="main"
+  .title-panel
+    h3
+      = @feedly_source.title
+  .feedly-source-container
+    h4
+      |Description
+    p
+      = @feedly_source.description
+    h4
+      |Last article date
+    p
+      - if @feedly_source.feedly_articles.any?
+        = @feedly_source.feedly_articles.last.publish_date
+      - else
+        | -
+
+    = form_for @feedly_source, url: admin_feedly_source_path(@feedly_source) do |f|
+      .form-group
+        = f.label :enabled
+        = f.check_box :enabled
+      = f.submit 'Save', class: 'btn btn-default'
